@@ -1,0 +1,59 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #232323;
+}
+
+h2 > em {
+  color: palevioletred;
+  text-decoration: underline;
+}
+
+#gallery {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#boxes > div {
+  border: 1px solid black;
+}
+
+.galery-list__item {
+  flex-basis: 30%;
+}
+
+.galery-list__image {
+  border: 10px solid white;
+  border-radius: 50%;
+}
+
+#validation-input {
+  border: 3px solid #bdbdbd;
+}
+
+#validation-input.valid {
+  border-color: #4caf50;
+}
+
+#validation-input.invalid {
+  border-color: #f44336;
+}
