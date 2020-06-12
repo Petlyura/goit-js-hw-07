@@ -6,8 +6,7 @@ const rangeRef = document.querySelector('#font-size-control');
 const spanRef = document.querySelector('#text');
 
 const handleRangeChange = event => {
-  spanRef.style.fontSize =
-    event.target.valueAsNumber < 25 ? '8px' : `${event.target.valueAsNumber}px`;
+  spanRef.style.fontSize = `${event.target.valueAsNumber}px`;
 };
 
-rangeRef.addEventListener('change', handleRangeChange);
+rangeRef.addEventListener('input', handleRangeChange);

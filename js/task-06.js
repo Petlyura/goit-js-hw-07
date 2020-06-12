@@ -17,5 +17,7 @@ inputRef.addEventListener('input', event => {
 
   if (input.value.length === validInputLength) {
     inputRef.classList.replace('invalid', 'valid');
+  } else {
+    inputRef.classList.replace('valid', 'invalid');
   }
 });

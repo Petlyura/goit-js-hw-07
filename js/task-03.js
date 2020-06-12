@@ -30,21 +30,44 @@ const images = [
   },
 ];
 
-const makeGalery = function ({ url, alt }) {
-  const galeryListItemRef = document.createElement('li');
-  galeryListItemRef.classList.add('galery-list__item');
+// const makeGalery = function ({ url, alt }) {
+//   const galeryListItemRef = document.createElement('li');
+//   galeryListItemRef.classList.add('galery-list__item');
 
-  const galeryListImageRef = document.createElement('img');
-  galeryListImageRef.classList.add('galery-list__image');
-  galeryListImageRef.setAttribute('src', url);
-  galeryListImageRef.setAttribute('alt', alt);
+//   const galeryListImageRef = document.createElement('img');
+//   galeryListImageRef.classList.add('galery-list__image');
+//   galeryListImageRef.setAttribute('src', url);
+//   galeryListImageRef.setAttribute('alt', alt);
 
-  galeryListItemRef.appendChild(galeryListImageRef);
+//   galeryListItemRef.appendChild(galeryListImageRef);
 
-  return galeryListItemRef;
+//   return galeryListItemRef;
+// };
+
+// const galeryImage = images.map(element => makeGalery(element));
+
+// const galleryListRef = document.querySelector('#gallery');
+// galleryListRef.append(...galeryImage);
+
+//==============================================================================
+
+/*
+  используя шаблонные строки и insertAdjacentHTML()
+*/
+
+const makeGalery = function (elementRef, { url, alt }) {
+  elementRef.insertAdjacentHTML(
+    'beforeend',
+    `<li class="galery-list__item">
+    <img src="${url}" class="galery-list__image" alt="${alt}" />
+    </li>`,
+  );
 };
 
-const galeryImage = images.map(element => makeGalery(element));
-
 const galleryListRef = document.querySelector('#gallery');
-galleryListRef.append(...galeryImage);
+
+const renderGallery = (arr, elementToInsert) => {
+  arr.map(element => makeGalery(elementToInsert, element));
+};
+
+renderGallery(images, galleryListRef);
